@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { motion, useAnimation, useInView, useScroll, useTransform } from 'framer-motion'
-import { Car, Zap, Truck, Search, Menu, CarFront, CarTaxiFront, Factory, DollarSign, ShieldCheck, Headphones } from 'lucide-react'
+import { Car, Zap, Truck, Search, Menu, CarFront, CarTaxiFront, Factory, IndianRupee, ShieldCheck, Headphones } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -79,6 +79,18 @@ const brandLogos = [
   { 
     name: 'BMW', 
     logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/BMW_logo_PNG-removebg-preview-PSDUnzGelpjkESadmHzBfuiks1UvYE.png'
+  },
+  { 
+    name: 'Tata Motors', 
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Tata_logo.svg/200px-Tata_logo.svg.png'
+  },
+  { 
+    name: 'Mahindra', 
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Mahindra_%26_Mahindra_Logo.svg/200px-Mahindra_%26_Mahindra_Logo.svg.png'
+  },
+  { 
+    name: 'Maruti Suzuki', 
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Maruti_Suzuki_Logo.svg/200px-Maruti_Suzuki_Logo.svg.png'
   }
 ]
 
@@ -224,9 +236,12 @@ export default function Component() {
                       <SelectValue placeholder="Any Makes" />
                     </SelectTrigger>
                     <SelectContent>
+                      <SelectItem value="tata">Tata Motors</SelectItem>
+                      <SelectItem value="mahindra">Mahindra</SelectItem>
+                      <SelectItem value="maruti">Maruti Suzuki</SelectItem>
+                      <SelectItem value="hyundai">Hyundai</SelectItem>
                       <SelectItem value="toyota">Toyota</SelectItem>
                       <SelectItem value="honda">Honda</SelectItem>
-                      <SelectItem value="ford">Ford</SelectItem>
                     </SelectContent>
                   </Select>
                   <Select>
@@ -234,9 +249,11 @@ export default function Component() {
                       <SelectValue placeholder="Any Models" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="camry">Camry</SelectItem>
-                      <SelectItem value="civic">Civic</SelectItem>
-                      <SelectItem value="f150">F-150</SelectItem>
+                      <SelectItem value="nexon">Nexon EV</SelectItem>
+                      <SelectItem value="thar">Thar</SelectItem>
+                      <SelectItem value="baleno">Baleno</SelectItem>
+                      <SelectItem value="creta">Creta</SelectItem>
+                      <SelectItem value="fortuner">Fortuner</SelectItem>
                     </SelectContent>
                   </Select>
                   <Button className="w-full sm:w-auto" size="lg">
@@ -272,7 +289,7 @@ export default function Component() {
               className="flex flex-col items-center text-center"
             >
               <div className="bg-blue-100 p-4 rounded-full mb-4">
-                <DollarSign className="h-8 w-8 text-blue-600" />
+                <IndianRupee className="h-8 w-8 text-blue-600" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Best Price Guarantee</h3>
               <p className="text-gray-600">We offer competitive prices on our 100,000+ vehicle inventory.</p>
@@ -393,10 +410,10 @@ export default function Component() {
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { name: 'Lamborghini Huracán', price: 250000, miles: '1k', image: carImages.lamborghini },
-              { name: 'Ford Mustang GT', price: 45000, miles: '15k', image: carImages.mustang },
-              { name: 'Mercedes-AMG GT', price: 150000, miles: '5k', image: carImages.mercedes },
-              { name: 'Audi A1 Sport', price: 35000, miles: '12k', image: carImages.audi },
+              { name: 'Tata Nexon EV', price: 1499000, km: '10k', fuel: 'Electric', trans: 'Automatic', image: carImages.lamborghini },
+              { name: 'Mahindra Thar', price: 1599000, km: '15k', fuel: 'Diesel', trans: 'Manual', image: carImages.mustang },
+              { name: 'Mercedes-AMG GT', price: 23500000, km: '5k', fuel: 'Petrol', trans: 'Automatic', image: carImages.mercedes },
+              { name: 'Maruti Suzuki Baleno', price: 749000, km: '12k', fuel: 'Petrol', trans: 'Manual', image: carImages.audi },
             ].map((car) => (
               <motion.div
                 key={car.name}
@@ -413,12 +430,12 @@ export default function Component() {
                 <div className="p-6">
                   <h3 className="mb-2 text-xl font-bold">{car.name}</h3>
                   <div className="mb-4 flex items-center gap-4 text-sm text-gray-600">
-                    <span>{car.miles} Miles</span>
-                    <span>Petrol</span>
-                    <span>Automatic</span>
+                    <span>{car.km} km</span>
+                    <span>{car.fuel}</span>
+                    <span>{car.trans}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-xl font-bold">${car.price.toLocaleString()}</span>
+                    <span className="text-xl font-bold">{`₹${car.price.toLocaleString('en-IN')}`}</span>
                     <Button variant="outline" size="sm">View Details</Button>
                   </div>
                 </div>
@@ -469,9 +486,9 @@ export default function Component() {
           <h2 className="mb-12 text-center text-3xl font-bold">Our Best Sellers</h2>
           <div className="grid gap-8 md:grid-cols-3">
             {[
-              { name: 'Alfa Romeo Giulia', description: 'Perfect for business trips and special occasions.', image: carImages.alfa },
-              { name: 'Range Rover Evoque', description: 'Spacious and comfortable for family adventures.', image: carImages.rangeRover },
-              { name: 'Audi S5 Sportback', description: 'Performance and luxury in perfect harmony.', image: carImages.audiS5 },
+              { name: 'Tata Harrier', description: 'Bold design and powerful performance for Indian roads.', image: carImages.alfa },
+              { name: 'Mahindra XUV700', description: 'Spacious and feature-packed for family adventures.', image: carImages.rangeRover },
+              { name: 'Hyundai Creta', description: 'India\'s favourite SUV with premium comfort.', image: carImages.audiS5 },
             ].map((car, index) => (
               <motion.div
                 key={index}
@@ -500,9 +517,9 @@ export default function Component() {
           <h2 className="mb-12 text-center text-3xl font-bold">Why Choose Us?</h2>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { title: 'Special Financing Offers', icon: '💰' },
-              { title: 'Trusted Car Dealership', icon: '💎' },
-              { title: 'Transparent Pricing', icon: '🏷️' },
+              { title: 'Easy EMI Options', icon: '💰' },
+              { title: 'Trusted Across India', icon: '💎' },
+              { title: 'Transparent Pricing in INR', icon: '🏷️' },
               { title: 'Expert Car Service', icon: '🚗' },
             ].map((feature) => (
               <motion.div
@@ -542,8 +559,8 @@ export default function Component() {
               <Button variant="outline" className="w-full">View Collection</Button>
             </motion.div>
             {[
-              { name: 'Ferrari F8 Tributo', description: 'Experience Italian excellence and performance.', image: carImages.ferrari },
-              { name: 'Tesla Model 3', description: 'The future of electric mobility.', image: carImages.tesla },
+              { name: 'Tata Curvv EV', description: 'India\'s first electric coupe SUV with stunning design.', image: carImages.ferrari },
+              { name: 'Mahindra BE 6', description: 'The future of electric mobility, made in India.', image: carImages.tesla },
             ].map((car, index) => (
               <motion.div
                 key={index}
@@ -594,14 +611,14 @@ export default function Component() {
             <div>
               <h3 className="mb-4 text-lg font-bold">Contact Us</h3>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li>123 Car Street, Auto City, CA 90000</li>
-                <li>Email: info@carrental.com</li>
-                <li>Phone: +1 123 456 7890</li>
+                <li>42 MG Road, Gurugram, Haryana 122001</li>
+                <li>Email: info@carrental.in</li>
+                <li>Phone: +91 98765 43210</li>
               </ul>
             </div>
           </div>
           <div className="mt-8 border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
-            © 2023 CarRental. All rights reserved.
+            © 2026 CarRental India. All rights reserved.
           </div>
         </div>
       </footer>
