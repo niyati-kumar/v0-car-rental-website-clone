@@ -184,10 +184,10 @@ export default function Component() {
           <Image
             src={carImages.showroom}
             alt="Luxury Car Showroom"
-            layout="fill"
-            objectFit="cover"
+            fill
+            sizes="100vw"
             quality={100}
-            className="opacity-50"
+            className="opacity-50 object-cover"
           />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/50 to-blue-900/20 z-10"></div>
