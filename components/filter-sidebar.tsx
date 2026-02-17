@@ -54,7 +54,7 @@ export function FilterSidebar({ filters, onChange }: FilterSidebarProps) {
         </h3>
         <Slider
           min={500}
-          max={6000}
+          max={15000}
           step={100}
           value={filters.priceRange}
           onValueChange={(val) =>
@@ -64,7 +64,7 @@ export function FilterSidebar({ filters, onChange }: FilterSidebarProps) {
         />
         <div className="flex justify-between text-xs text-muted-foreground">
           <span>{formatINR(500)}</span>
-          <span>{formatINR(6000)}</span>
+          <span>{formatINR(15000)}</span>
         </div>
       </div>
 

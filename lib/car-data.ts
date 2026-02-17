@@ -52,6 +52,9 @@ export const BRAND_MODELS: Record<string, string[]> = {
   "MG": ["Hector", "Astor", "ZS EV", "Gloster", "Comet EV"],
   "Skoda": ["Slavia", "Kushaq", "Kodiaq", "Superb"],
   "Volkswagen": ["Taigun", "Virtus", "Tiguan"],
+  "BMW": ["3 Series", "5 Series", "7 Series", "X1", "X3", "X5", "X7", "iX", "i4", "M340i"],
+  "Mercedes-Benz": ["C-Class", "E-Class", "S-Class", "GLA", "GLC", "GLE", "GLS", "EQS", "AMG GT", "A-Class Limousine"],
+  "Audi": ["A4", "A6", "A8", "Q3", "Q5", "Q7", "Q8", "e-tron", "RS5", "A3"],
 }
 
 export const ALL_BRANDS = Object.keys(BRAND_MODELS)
@@ -96,6 +99,12 @@ export const CAR_INVENTORY: CarItem[] = [
   { id: "22", name: "Verna", brand: "Hyundai", type: "Sedan", fuel: "Petrol", transmission: "Automatic", seats: 5, pricePerDay: 2400, rating: 4.5, image: "/images/cars/verna.jpg", popular: false },
   { id: "23", name: "Safari", brand: "Tata", type: "SUV", fuel: "Diesel", transmission: "Automatic", seats: 7, pricePerDay: 3200, rating: 4.5, image: "/images/cars/safari.jpg", popular: false },
   { id: "24", name: "Glanza", brand: "Toyota", type: "Hatchback", fuel: "Petrol", transmission: "Manual", seats: 5, pricePerDay: 1300, rating: 4.2, image: "/images/cars/glanza.jpg", popular: false },
+  { id: "25", name: "3 Series", brand: "BMW", type: "Sedan", fuel: "Petrol", transmission: "Automatic", seats: 5, pricePerDay: 8500, rating: 4.8, image: "/images/cars/bmw-3series.jpg", popular: true },
+  { id: "26", name: "X5", brand: "BMW", type: "SUV", fuel: "Diesel", transmission: "Automatic", seats: 5, pricePerDay: 12000, rating: 4.9, image: "/images/cars/bmw-x5.jpg", popular: true },
+  { id: "27", name: "C-Class", brand: "Mercedes-Benz", type: "Sedan", fuel: "Petrol", transmission: "Automatic", seats: 5, pricePerDay: 9000, rating: 4.8, image: "/images/cars/mercedes-cclass.jpg", popular: true },
+  { id: "28", name: "GLC", brand: "Mercedes-Benz", type: "SUV", fuel: "Diesel", transmission: "Automatic", seats: 5, pricePerDay: 11000, rating: 4.9, image: "/images/cars/mercedes-glc.jpg", popular: true },
+  { id: "29", name: "A4", brand: "Audi", type: "Sedan", fuel: "Petrol", transmission: "Automatic", seats: 5, pricePerDay: 8000, rating: 4.7, image: "/images/cars/audi-a4.jpg", popular: true },
+  { id: "30", name: "Q7", brand: "Audi", type: "SUV", fuel: "Diesel", transmission: "Automatic", seats: 7, pricePerDay: 14000, rating: 4.9, image: "/images/cars/audi-q7.jpg", popular: true },
 ]
 
 export function formatINR(amount: number): string {

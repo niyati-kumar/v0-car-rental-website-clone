@@ -36,7 +36,7 @@ const DEFAULT_FILTERS: Filters = {
   types: [],
   fuels: [],
   transmissions: [],
-  priceRange: [500, 6000],
+  priceRange: [500, 15000],
 }
 
 export default function Component() {
