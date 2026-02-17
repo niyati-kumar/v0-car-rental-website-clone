@@ -1,14 +1,15 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { Toaster } from 'sonner'
 import './globals.css'
 
 const _inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const _jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains-mono" });
 
 export const metadata: Metadata = {
-  title: 'FLUX Drive | Futuristic Car Rental',
-  description: 'The next generation of car rental. Unlock premium electric vehicles with biometric access, real-time GPS tracking, and seamless booking.',
+  title: 'CarRental | Find Your Dream Car',
+  description: 'Discover the perfect vehicle for your lifestyle. Browse top Indian and international car brands with transparent pricing in INR.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -30,11 +31,9 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0EA5E9',
+  themeColor: '#2563EB',
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
 }
 
 export default function RootLayout({
@@ -46,6 +45,7 @@ export default function RootLayout({
     <html lang="en" className={`${_inter.variable} ${_jetbrainsMono.variable}`}>
       <body className="font-sans antialiased">
         {children}
+        <Toaster richColors position="top-right" />
         <Analytics />
       </body>
     </html>
